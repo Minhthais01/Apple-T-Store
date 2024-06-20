@@ -1,0 +1,87 @@
+<main>
+    <div class="container-xl px-4 mt-4">
+        <hr class="mt-0 mb-4">
+        <div class="row">
+            <div class="col-xl-4">
+                <!-- Profile picture card-->
+                <div class="card mb-4 mb-xl-0">
+                    <div class="card-header">Profile Picture</div>
+                    <div class="card-body text-center" *ngFor="let a of account">
+                        <!-- Profile picture image-->
+                        <img style="border-radius: unset; width: 50%; height: auto;"  class="img-account-profile rounded-circle mb-2" 
+                            [src]="path + a.account_avatar" alt=""  >
+                        <!-- Profile picture help block-->
+                       
+                        <input type="file" (change)="uploadImage($event)" style="width: 100%; height: 72%; margin-top: 18px;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8">
+                <!-- Account details card-->
+                <div class="card mb-4">
+                    <div class="card-header">Profile Detail</div>
+                    <div class="card-body">
+                        <form>
+                            <!-- Form Group (username)-->
+                            <div class="mb-3">
+                                <label class="small mb-1" for="inputUsername">User Name</label>
+                                <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" [value]="name" (input)="nameChange($event)">
+                            </div>
+                            <!-- Form Row        -->
+                            <div class="row gx-3 mb-3">
+                                <!-- Form Group (organization name)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputOrgName">Email</label>
+                                    <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" [value]="email" (input)="emailChange($event)">
+                                </div>
+                                <!-- Form Group (location)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputLocation">Address</label>
+                                    <input class="form-control" id="inputLocation" type="text" placeholder="Enter your location" [value]="address" (input)="addressChange($event)">
+                                </div>
+                            </div>
+                            <!-- Form Group (email address)-->
+                            <div class="mb-3">
+                                <div class="gender-details">
+                                    <input type="radio" name="gender" id="dot-1" [(ngModel)]="gender" (change)="male($event)" value="Male" name="gender">
+                                    <input type="radio" name="gender" id="dot-2" [(ngModel)]="gender" (change)="female($event)" value="Female" name="gender">
+                                    <input type="radio" name="gender" id="dot-3" [(ngModel)]="gender" (change)="prefer($event)" value="Prefer not to say" name="gender">
+                                    <span class="gender-title">Gender</span>
+                                    <div class="category">
+                                      <label for="dot-1">
+                                      <span class="dot one"></span>
+                                      <span class="gender">Male</span>
+                                    </label>
+                                    <label for="dot-2">
+                                      <span class="dot two"></span>
+                                      <span class="gender">Female</span>
+                                    </label>
+                                    <label for="dot-3">
+                                      <span class="dot three"></span>
+                                      <span class="gender">Prefer not to say</span>
+                                      </label>
+                                    </div>
+                                  </div>
+                            </div>
+                            <!-- Form Row-->
+                            <div class="row gx-3 mb-3">
+                                <!-- Form Group (phone number)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputPhone">Phone number</label>
+                                    <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" [value]="phone" (input)="phoneChange($event)">
+                                </div>
+                                <!-- Form Group (birthday)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputBirthday">Birthday</label>
+                                    <input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday" value="{{birthday | date : 'dd-MM-yyyy'}}" (input)="birthdayChange($event)">
+                                </div>
+                            </div>
+                            <!-- Save changes button-->
+                            <button class="btn btn-primary" type="button" (click)="saveChange()">Save changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

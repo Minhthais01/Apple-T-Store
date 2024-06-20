@@ -1,0 +1,31 @@
+<div class="container" id="text" style="margin-top: 150px;">
+    <h1 class="text-center">PRODUCTS</h1>
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6" *ngFor="let item of lstProduct">
+            <div class="product-grid">
+  
+              <div class="product-image">
+                <a href="#">
+                    <img class="pic-1" [src]="(path + item.product_image)">
+                </a>
+                <ul class="social">
+                    <li><a [routerLink]="['/product-details', item.product_id]" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                    <li><a (click)="addCart(item.product_id, 1)" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                </ul>
+              </div>
+  
+              <div class="product-content">
+                  <h3 class="title"><a href="#">{{item.product_name}}</a></h3>
+                  <div class="price">${{item.product_sell_price}}
+                      <span>${{item.product_sell_price * 1.5}}</span>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

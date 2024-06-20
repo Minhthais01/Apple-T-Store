@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@auth0/angular-jwt": "^5.2.0",
+    "ngx-auth": "^6.0.0",
+    "ngx-toastr": "^18.0.0"
+  }
+}

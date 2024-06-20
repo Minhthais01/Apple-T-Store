@@ -1,0 +1,146 @@
+<main>
+  <div class="container">
+      <div class="title">Register</div>
+      <div class="content">
+        <form [formGroup]="registerForm">
+          <div class="user-details">
+            <div class="input-box" [class.error]="registerForm.controls['username'].dirty && registerForm.hasError('required', 'username')">
+              <span class="details">Username</span>
+              <input formControlName="username" type="text" placeholder="Enter your username" required>
+              <small *ngIf="registerForm.controls['username'].dirty && registerForm.hasError('required', 'username')" class="text-danger">*Username is required</small>
+              <small *ngIf="registerForm.controls['username'].hasError('pattern')" class="text-danger">*Minimum 2 and maximum 20 characters</small>
+            </div>
+
+            <div class="input-box">
+              <span class="details">Address</span>
+              <input formControlName="address" type="text" placeholder="Enter your address">
+            </div>
+
+            <div class="input-box" [class.error]="registerForm.controls['email'].dirty && registerForm.hasError('required', 'email')">
+              <span class="details">Email</span>
+              <input formControlName="email" type="text" placeholder="Enter your email" required>
+              <small *ngIf="registerForm.controls['email'].dirty && registerForm.hasError('required', 'email')" class="text-danger">*Email is required</small>
+              <small *ngIf="registerForm.controls['email'].hasError('pattern')" class="text-danger">*Email is invalid</small>
+            </div>
+
+            <div class="input-box" [class.error]="registerForm.controls['phone'].dirty && registerForm.hasError('required', 'phone')">
+              <span class="details">Phone Number</span>
+              <input formControlName="phone" type="text" placeholder="Enter your phone number" required>
+              <small *ngIf="registerForm.controls['phone'].dirty && registerForm.hasError('required', 'phone')" class="text-danger">*Phone is required</small>
+              <small *ngIf="registerForm.controls['phone'].hasError('pattern')" class="text-danger">*Phone Number is invalid</small>
+            </div>
+
+            <div class="input-box" [class.error]="registerForm.controls['password'].dirty && registerForm.hasError('required', 'password')">
+              <span class="details">Password</span>
+              <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 5px;">
+                <input style="border: none;" formControlName="password" type="{{type}}" placeholder="Enter your password" required>
+                <span (click)="hideShowPass()" class="fa {{eyeIcon}}" style="margin-right: 10px;"></span>
+              </div>
+              <small *ngIf="registerForm.controls['password'].dirty && registerForm.hasError('required', 'password')" class="text-danger">*Password is required</small>
+            </div>
+
+            <div class="input-box" [class.error]="registerForm.controls['confirmPassword'].dirty && registerForm.hasError('required', 'confirmPassword')">
+              <span class="details">Confirm Password</span>
+              <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 5px;">
+                <input style="border: none;" formControlName="confirmPassword" type="{{type}}" placeholder="Confirm your password" required>
+                <span (click)="hideShowPass()" class="fa {{eyeIcon}}" style="margin-right: 10px;"></span>
+              </div>
+              <small *ngIf="registerForm.controls['confirmPassword'].dirty && registerForm.hasError('required', 'confirmPassword')" class="text-danger">*confirm Password is required</small>
+            </div>
+
+            <div class="input-box" [class.error]="registerForm.controls['birthday'].dirty && registerForm.hasError('required', 'birthday')">
+              <label for="birthday" style="font-weight: 500; color: var(--grey-color);">Birthday:</label>
+              <input formControlName="birthday" type="date" id="birthday" name="birthday" required>
+              <small *ngIf="registerForm.controls['birthday'].dirty && registerForm.hasError('required', 'birthday')" class="text-danger">*Birthday is required</small>
+            </div>
+          </div>
+
+          <div class="gender-details" [class.error]="registerForm.controls['gender'].dirty && registerForm.hasError('required', 'gender')">
+            <span style="font-weight: 500; color: var(--grey-color);">Gender</span><br>
+            <div style="display: flex;">
+              <input formControlName="gender" type="radio" value="Male" style="margin-right: 10px;"> <p style="margin-top: 13px; margin-right: 45px;">Male</p> 
+              <input formControlName="gender" type="radio" value="Female" style="margin-right: 10px;"><p style="margin-top: 13px; margin-right: 45px;">Female</p> 
+              <input formControlName="gender" type="radio" value="Prefer not to say" style="margin-right: 10px;"> <p style="margin-top: 13px; margin-right: 45px;">Prefer not to say</p>
+            </div>
+          </div>
+          <small *ngIf="registerForm.controls['gender'].dirty && registerForm.hasError('required', 'gender')" class="text-danger">*Gender is required</small>
+
+          <div class="mb-3" style="display: flex;">
+            <input type="checkbox" [(ngModel)]="!isChecked" (change)="toggleButton()">
+            <p style="margin-top: 15px; margin-left: 5px;">I agree with the terms and conditions? <a id="term"  data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Terms and conditions here</a> </p>
+          </div> 
+          <div class="button">
+            <!-- <input [disabled]="isChecked" id="btn-Register" (click)="onSignup()" type="submit" value="Register"> -->
+            <button [disabled]="isChecked" id="btn-Register" type="button" class="btn btn-primary" (click)="onSignup()">Register</button>
+          </div>
+
+          <div>
+            <a routerLink="/Login" class="text-body"><i class="fa-solid fa-arrow-left" style="margin-left: 5px;"></i>  Back to Login</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+    <!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="display: flex;">
+        <h5 class="modal-title" id="exampleModalLongTitle">Term & Condition</h5>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="margin-bottom: 20px;">X</button>
+      </div>
+      <div class="modal-body">
+
+        <section>
+          <b>1. Acceptance of Terms</b>
+          <p>By registering an account on the Apple-T Store website, you agree to abide by and comply with all the terms and conditions outlined in this document.</p>
+      </section>
+
+      <section>
+          <b>2. Personal Information</b>
+          <p>
+              - You commit to providing accurate, complete, and non-fraudulent personal information when registering for an account.<br>
+              - Apple-T Store pledges to protect your personal information and use it only for purposes related to our services.
+          </p>
+      </section>
+
+      <section>
+          <b>3. Account Security</b>
+          <p>
+              - You are responsible for safeguarding the security of your account and password.<br>
+              - Do not share your login information with any third party.<br>
+              - You must promptly notify us if you discover any security breaches or unauthorized use of your account.
+          </p>
+      </section>
+
+      <section>
+          <b>4. Use of Account</b>
+          <p>
+              - Your account is for personal use only and may not be transferred to any third party.<br>
+              - You agree not to use your account to engage in any unlawful activities or harm Apple-T Store or any third party.
+          </p>
+      </section>
+
+      <section>
+          <b>5. Account Changes and Cancellation</b>
+          <p>
+              - You have the right to modify or cancel your account at any time.<br>
+              - We also reserve the right to suspend or terminate your account if we discover any violations of these terms and conditions.
+          </p>
+      </section>
+
+      <!-- <section>
+          <b>6. Changes to Terms</b>
+          <p>We reserve the right to modify or update these terms and conditions at any time without prior notice. Your continued use constitutes acceptance of the new terms and conditions.</p>
+      </section> -->
+
+      <section>
+          <b>6. Contact</b>
+          <p>If you have any questions or suggestions regarding these terms and conditions, please contact us at: <a href="mailto:info@apple-tstore.com">info@apple-tstore.com</a>.</p>
+      </section>
+      </div>
+    </div>
+  </div>
+</div>
+</main>

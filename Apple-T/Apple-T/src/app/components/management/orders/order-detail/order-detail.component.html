@@ -1,0 +1,38 @@
+<main>
+  <div class="table">
+      <div class="table_header">
+          <h4>Order Detail</h4>
+          <div>
+              <input placeholder="order detail"/>
+              <!-- <button routerLink="/Add-Account" class="add_new">+ Add New</button> -->
+          </div>
+      </div>
+      <div class="table_section">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Order ID</th>
+                      <th>Image</th>
+                      <th>Product Name</th>
+                      <th>Brand Name</th>
+                      <th>Price</th>
+                      <th>Quantity</th>
+                  </tr>
+              </thead>
+              <tbody *ngFor="let p of lstOrderDetail | paginate:{itemsPerPage: pageSize, currentPage: currentPage}" >
+                  <tr >
+                      <td>{{p.od_order_id}}</td>
+                      <td><img [src]="(path + p.product_image)"></td>
+                      <td>{{p.product_name}}</td>
+                      <td>{{p.brand_name}}</td>
+                      <td>{{p.product_price}} $</td>
+                      <td>{{p.od_quantity}}</td>
+                  </tr>
+              </tbody>
+          </table>
+          <div class="pagination">
+            <pagination-controls (pageChange)="currentPage=$event" variant="Circular"></pagination-controls>
+          </div>
+      </div>
+  </div>
+</main>

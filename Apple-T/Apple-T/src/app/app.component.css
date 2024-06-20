@@ -1,0 +1,52 @@
+/* main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+  }
+  
+  router-outlet {
+    flex: 1; 
+  } */
+
+app-header{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    max-width: 100%;
+}
+
+
+app-chat-bot {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    bottom: 70px;
+    right: 80px;
+    width: auto;
+    height: auto;
+    position: fixed; 
+    z-index: 4;
+  }
+/* @media (max-width: 376px) { 
+    app-header{
+        max-width: 375px;
+    }
+ } */
+
+
+
+    /* @media (max-width: 400px) { 
+        app-header{
+            max-width: 70%;
+        }
+        router-outlet{
+            max-width: 100%;
+        }
+    } */
+
+
+
+
+

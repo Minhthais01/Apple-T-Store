@@ -1,0 +1,48 @@
+<main>
+  <div class="container">
+      <div class="title">Update Brand</div>
+      <div class="content">
+        <form>
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Brand Name</span>
+              <input [value]="b_name" type="text" placeholder="Brand Name" (input)="nameChange($event)" required>
+            </div>
+
+            <div class="input-box">
+              <span class="details">Email</span>
+              <input [value]="b_email" type="email" placeholder="Email" (input)="emailChange($event)" required>
+            </div>
+
+            <div class="input-box">
+              <span class="details">Address</span>
+              <input [value]="b_address" type="text" placeholder="Address" (input)="addressChange($event)" required>
+            </div>
+
+            <div class="input-box">
+              <span class="details">Phone Number</span>
+              <input [value]="b_phone" type="phone" placeholder="Phone" (input)="phoneChange($event)" required>
+            </div>
+
+
+            <div class="input-box" style="margin-top: 1px;">
+              <span class="details">Status</span>
+              <select (change)="onSelectStatus($event)" id="select-option" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="font-size: 16px;">
+                <option selected style="color: #ccc;">Choose Brand Status</option>
+                <option>Yes</option>
+                <option>No</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <a routerLink="/View-Brand" class="text-body"><i class="fa-solid fa-arrow-left" style="margin-left: 5px;"></i>  Back</a>
+          </div>
+          <div class="button">
+            <input (click)="updateBrand()" type="submit" value="Update">
+          </div>
+        </form>
+      </div>
+    </div>
+</main>
+

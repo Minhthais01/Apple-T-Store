@@ -1,0 +1,131 @@
+
+
+  #sidebar-wrapper{
+    background-color: rgb(67 0 86);
+  }
+  
+
+
+  #storeName{
+    color: #ff014fff;
+  }
+
+  #option{
+    color: #ffffff;
+
+  }
+
+  #option:hover{
+    color: #cec7c7;
+  }
+
+.btn_chart{
+    padding: 5px 10px;
+    color: #ffffff;
+    background-color: rgba(184, 28, 75, 0.849);
+    border-radius: 5px;
+    margin-left: 5px;
+    border: none;
+}
+
+#icon{
+    margin-right: 8px;
+}
+
+
+.btn_table{
+    padding: 5px 10px;
+    color: #ffffff;
+    background-color: #ff014fff;
+    border-radius: 5px;
+    border: none;
+}
+
+.btn_table:hover{
+    background-color: rgba(221, 19, 79, 0.774);
+    font-size: 16px;
+}
+  
+  .rounded-full {
+    border-radius: 100%;
+  }
+  
+  #wrapper {
+    overflow-x: hidden;
+    background-image: linear-gradient(
+      to right,
+      #f2f6fc,
+      #f2f6fc,
+      #f2f6fc,
+      #f2f6fc,
+      #f2f6fc
+    );
+  }
+  
+  #sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin 0.25s ease-out;
+    -moz-transition: margin 0.25s ease-out;
+    -o-transition: margin 0.25s ease-out;
+    transition: margin 0.25s ease-out;
+  }
+  
+  #sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+  }
+  
+  #sidebar-wrapper .list-group {
+    width: 15rem;
+  }
+  
+  #page-content-wrapper {
+    min-width: 100vw;
+  }
+  
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+  }
+  
+  #menu-toggle {
+    cursor: pointer;
+  }
+  
+  .list-group-item {
+    border: none;
+    padding: 20px 30px;
+  }
+  
+  .list-group-item.active {
+    background-color: transparent;
+    color: var(--main-text-color);
+    font-weight: bold;
+    border: none;
+  }
+
+  .scroll-horizontal{
+    overflow-x: auto;
+      white-space: nowrap;
+  }
+  
+  @media (min-width: 768px) {
+    #sidebar-wrapper {
+      margin-left: 0;
+    }
+  
+    #page-content-wrapper {
+      min-width: 0;
+      width: 100%;
+    }
+  
+    #wrapper.toggled #sidebar-wrapper {
+      margin-left: -15rem;
+    }
+  }
+  
+  
+  
+  
+  
+  

@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Greenwich\\Final Project\\Apple-T BE\\Apple-T BE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{27EC2A02-ED1C-4AE2-8377-645204EAF0D0}|Apple-T BE\\Apple-T BE.csproj|c:\\greenwich\\final project\\apple-t be\\apple-t be\\apple-t be\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{27EC2A02-ED1C-4AE2-8377-645204EAF0D0}|Apple-T BE\\Apple-T BE.csproj|solutionrelative:apple-t be\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27EC2A02-ED1C-4AE2-8377-645204EAF0D0}|Apple-T BE\\Apple-T BE.csproj|c:\\greenwich\\final project\\apple-t be\\apple-t be\\apple-t be\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27EC2A02-ED1C-4AE2-8377-645204EAF0D0}|Apple-T BE\\Apple-T BE.csproj|solutionrelative:apple-t be\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27EC2A02-ED1C-4AE2-8377-645204EAF0D0}|Apple-T BE\\Apple-T BE.csproj|c:\\greenwich\\final project\\apple-t be\\apple-t be\\apple-t be\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27EC2A02-ED1C-4AE2-8377-645204EAF0D0}|Apple-T BE\\Apple-T BE.csproj|solutionrelative:apple-t be\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27EC2A02-ED1C-4AE2-8377-645204EAF0D0}|Apple-T BE\\Apple-T BE.csproj|c:\\greenwich\\final project\\apple-t be\\apple-t be\\apple-t be\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27EC2A02-ED1C-4AE2-8377-645204EAF0D0}|Apple-T BE\\Apple-T BE.csproj|solutionrelative:apple-t be\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Greenwich\\Final Project\\Apple-T BE\\Apple-T BE\\Apple-T BE\\appsettings.json",
+              "RelativeDocumentMoniker": "Apple-T BE\\appsettings.json",
+              "ToolTip": "C:\\Greenwich\\Final Project\\Apple-T BE\\Apple-T BE\\Apple-T BE\\appsettings.json",
+              "RelativeToolTip": "Apple-T BE\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAACJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-29T09:48:43.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Greenwich\\Final Project\\Apple-T BE\\Apple-T BE\\Apple-T BE\\Program.cs",
+              "RelativeDocumentMoniker": "Apple-T BE\\Program.cs",
+              "ToolTip": "C:\\Greenwich\\Final Project\\Apple-T BE\\Apple-T BE\\Apple-T BE\\Program.cs",
+              "RelativeToolTip": "Apple-T BE\\Program.cs",
+              "ViewState": "AQIAAFEAAAAAAAAAAIBJwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T09:48:43.444Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Greenwich\\Final Project\\Apple-T BE\\Apple-T BE\\Apple-T BE\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Apple-T BE\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Greenwich\\Final Project\\Apple-T BE\\Apple-T BE\\Apple-T BE\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Apple-T BE\\Controllers\\ProductController.cs",
+              "ViewState": "AQIAAN4AAAAAAAAAAAAIwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T09:48:43.448Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Greenwich\\Final Project\\Apple-T BE\\Apple-T BE\\Apple-T BE\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Apple-T BE\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Greenwich\\Final Project\\Apple-T BE\\Apple-T BE\\Apple-T BE\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Apple-T BE\\Controllers\\OrderController.cs",
+              "ViewState": "AQIAAOQAAAAAAAAAAAAqwPQAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T09:48:43.452Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+<div class="chatBot-main" *ngIf="role !== 'Admin' && role !== 'Manager'">
+    <div class="chatbot-wrapper" #chatbotWrapper>
+      <div class="chatbox">
+        <div class="header">
+          Help User
+          <button class="close-btn" (click)="closeChatbot()">X</button>
+        </div>
+        <div class="message-box" #messageBox>
+          <div class="chat response">
+            <img src="assets/img/helpuser.png">
+            <span >Hello there! <br> How can I help you today.</span>
+          </div>
+        </div>
+        <div class="messagebar">
+          <div class="bar-wrapper">
+            <input type="text" placeholder="Enter your message..." [(ngModel)]="userTypedMessage">
+            <button style="margin-right: 10px; font-weight: 600;" (click)="sendMessage()"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="chat-icon" (click)="openChatbot()">+</div>
+  </div>

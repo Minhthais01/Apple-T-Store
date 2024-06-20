@@ -1,0 +1,54 @@
+<main>
+    <div class="table">
+        <div class="table_header">
+            <h4>Order History</h4>
+            <div>
+                <input [(ngModel)]="searchTerm" placeholder="search..." (input)="toggleSearchButton()"/>
+                <i *ngIf="searchTerm != ''" id="search" class="fa-solid fa-magnifying-glass search-btn" (keyup.enter)="search_OrderHistory()" (click)="search_OrderHistory()"></i>
+              </div>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Payment</th>
+                        <th>Note</th>
+                        <th>Order Date</th>
+                        <!-- <th>Delivery Date</th> -->
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let item of lstOrder | paginate:{itemsPerPage: pageSize, currentPage: currentPage}">                
+                    <tr >
+                        <td>{{item.order_id}}</td>
+                        <td>{{item.order_phone}}</td>
+                        <td>{{item.order_address}}</td>
+                        <td>{{item.order_quantity}}</td>
+                        <td>{{item.order_total_price}} $</td>
+                        <td>{{item.order_payment}}</td>
+                        <td>{{item.order_note}}</td>
+                        <td>{{item.order_date | date : 'dd-MM-yyyy'}}</td>
+                        <!-- <td>{{item.delivery_date | date : 'dd-MM-yyyy'}}</td> -->
+                        <td>{{item.order_status}}</td>
+                        <td>
+                            <!-- <button id="btn_Buy" routerLinkActive="router-link-active" >Buy More</button> -->
+                            <button id="btn_Seen" [routerLink]="['/Order-History-Detail', item.order_id]"><i class="fa-solid fa-eye"></i></button>
+                            <button id="btn_Cancel"*ngIf="item.order_status === 'Pending'" (click)="Cancel(item.order_id)">Cancel</button>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            <div class="pagination">
+                <pagination-controls (pageChange)="currentPage=$event" variant="Circular"></pagination-controls>
+              </div>
+        </div>
+    </div>
+</main>
+

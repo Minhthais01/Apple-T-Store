@@ -1,0 +1,84 @@
+<main>
+    <div class="container">
+        <div class="title">Add New Account</div>
+        <div class="content">
+          <form [formGroup]="addAccountForm">
+            <div class="user-details">
+              <div class="input-box" [class.error]="addAccountForm.controls['username'].dirty && addAccountForm.hasError('required', 'username')">
+                <span class="details">Username</span>
+                <input formControlName="username" type="text" placeholder="Enter your username" required>
+                <!-- <small *ngIf="addAccountForm.controls['username'].dirty && addAccountForm.hasError('required', 'username')" class="text-danger">*Username is required</small> -->
+                <small *ngIf="addAccountForm.controls['username'].dirty && addAccountForm.hasError('required', 'username')" class="text-danger">*Username is required</small>
+              <small *ngIf="addAccountForm.controls['username'].hasError('pattern')" class="text-danger">*Minimum 2 and maximum 20 characters</small>
+              </div>
+              <div class="input-box">
+                <span class="details">Address</span>
+                <input formControlName="address" type="text" placeholder="Enter your address">
+              </div>
+              <div class="input-box" [class.error]="addAccountForm.controls['email'].dirty && addAccountForm.hasError('required', 'email')">
+                <span class="details">Email</span>
+                <input formControlName="email" type="text" placeholder="Enter your email" required>
+                <small *ngIf="addAccountForm.controls['email'].dirty && addAccountForm.hasError('required', 'email')" class="text-danger">*Email is required</small>
+                <small *ngIf="addAccountForm.controls['email'].hasError('pattern')" class="text-danger">*Email is invalid</small>
+              </div>
+              <div class="input-box" [class.error]="addAccountForm.controls['phone'].dirty && addAccountForm.hasError('required', 'phone')">
+                <span class="details">Phone Number</span>
+                <input formControlName="phone" type="text" placeholder="Enter your phone number" required>
+                <small *ngIf="addAccountForm.controls['phone'].dirty && addAccountForm.hasError('required', 'phone')" class="text-danger">*Phone is required</small>
+                <small *ngIf="addAccountForm.controls['phone'].hasError('pattern')" class="text-danger">*Phone Number is invalid</small>
+              </div>
+              <div class="input-box" [class.error]="addAccountForm.controls['password'].dirty && addAccountForm.hasError('required', 'password')">
+                <span class="details">Password</span>
+                <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 5px;">
+                  <input style="border: none;" formControlName="password" type="{{type}}" placeholder="Enter your password" required>
+                  <span (click)="hideShowPass()" class="fa {{eyeIcon}}" style="margin-right: 10px;"></span>
+                </div>
+                <small *ngIf="addAccountForm.controls['password'].dirty && addAccountForm.hasError('required', 'password')" class="text-danger">*Password is required</small>
+              </div>
+              <div class="input-box" [class.error]="addAccountForm.controls['confirmPassword'].dirty && addAccountForm.hasError('required', 'confirmPassword')">
+                <span class="details">Confirm Password</span>
+                <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 5px;">
+                  <input style="border: none;" formControlName="confirmPassword" type="{{type}}" placeholder="Confirm your password" required>
+                  <span (click)="hideShowPass()" class="fa {{eyeIcon}}" style="margin-right: 10px;"></span>
+                </div>
+                <small *ngIf="addAccountForm.controls['confirmPassword'].dirty && addAccountForm.hasError('required', 'confirmPassword')" class="text-danger">*confirm Password is required</small>
+              </div>
+
+              <div class="input-box" [class.error]="addAccountForm.controls['birthday'].dirty && addAccountForm.hasError('required', 'birthday')">
+                <label for="birthday" style="font-weight: 500; color: var(--grey-color);">Birthday:</label>
+                <input formControlName="birthday" type="date" id="birthday" name="birthday" required>
+                <small *ngIf="addAccountForm.controls['birthday'].dirty && addAccountForm.hasError('required', 'birthday')" class="text-danger">*Birthday is required</small>
+              </div>
+
+            </div>
+
+            <div class="gender-details" [class.error]="addAccountForm.controls['gender'].dirty && addAccountForm.hasError('required', 'gender')">
+              <span style="font-weight: 500; color: var(--grey-color);">Gender</span><br>
+              <div style="display: flex;">
+                <input formControlName="gender" type="radio" value="Male" style="margin-right: 10px;"> <p style="margin-top: 13px; margin-right: 45px;">Male</p> 
+                <input formControlName="gender" type="radio" value="Female" style="margin-right: 10px;"><p style="margin-top: 13px; margin-right: 45px;">Female</p> 
+                <input formControlName="gender" type="radio" value="Prefer not to say" style="margin-right: 10px;"> <p style="margin-top: 13px; margin-right: 45px;">Prefer not to say</p>
+              </div>
+            </div>
+            <small *ngIf="addAccountForm.controls['gender'].dirty && addAccountForm.hasError('required', 'gender')" class="text-danger">*Gender is required</small>
+
+            <div class="input-box" style="margin-top: 1px;" [class.error]="addAccountForm.controls['role'].dirty && addAccountForm.hasError('required', 'role')">
+                <span class="details">Role</span>
+                <select formControlName="role" id="role" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="font-size: 16px;">
+                    <option >Manager</option>
+                    <option >Customer</option>
+                </select>
+                <small *ngIf="addAccountForm.controls['role'].dirty && addAccountForm.hasError('required', 'role')" class="text-danger">*Role is required</small>
+            </div>
+
+            <div>
+              <a routerLink="/View-Account" class="text-body"><i class="fa-solid fa-arrow-left" style="margin-left: 5px;"></i>  Back</a>
+            </div>
+            <div class="button">
+              <input (click)="onSignup()" type="submit" value="Create">
+            </div>
+          </form>
+        </div>
+      </div>
+</main>
+

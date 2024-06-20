@@ -1,0 +1,75 @@
+<main>
+  <div class="table">
+      <div class="table_header">
+          <h4>Product Management</h4>
+          <div style="display: flex;">
+            <input [(ngModel)]="searchTerm" placeholder="search..." (input)="toggleSearchButton()"/>
+            <i *ngIf="searchTerm != ''" id="search" class="fa-solid fa-magnifying-glass search-btn" (keyup.enter)="search()" (click)="search()"></i>
+              <button routerLink="/Add-Product" class="add_new">+ Add New</button>
+          </div>
+      </div>
+      <div class="table_section">
+          <table>
+              <thead>
+                  <tr>
+                      <th>ID</th>
+                      <th>Product</th>
+                      <th>Name</th>
+                      <th>Brand</th>
+                      <th>Quantity</th>
+                      <th>Original Price</th>
+                      <th>Sell Price</th>
+                      <th>Date</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody *ngFor="let item of lstProduct | paginate:{itemsPerPage: pageSize, currentPage: currentPage} ">
+                  <tr >
+                      <td>{{item.product_id}}</td>
+                      <td> <img [src]="(path + item.product_image)"></td>
+                      <td>{{item.product_name}}</td>
+                      <td>{{item.brand_name}}</td>
+                      <td>{{item.product_quantity_stock}}</td>
+                      <td>{{item.product_original_price}} $</td>
+                      <td>{{item.product_sell_price}} $</td>
+                      <td>{{item.product_import_date | date : 'dd-MM-yyyy'}}</td>
+                      <td>{{item.product_status}}</td>
+                      <td>
+                          <button  [routerLink]="['/Update-Product', item.product_id]" routerLinkActive="router-link-active" ><i class="fa-solid fa-pen-to-square"></i></button>
+                          <button (click)="getId(item.product_id)"  data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa-solid fa-trash"></i></button>
+                      </td>
+                  </tr>
+                  
+              </tbody>
+          </table>
+          <div class="pagination">
+            <pagination-controls (pageChange)="currentPage=$event" variant="Circular"></pagination-controls>
+          </div>
+      </div>
+  </div>
+</main>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" 
+aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Confirm Delete Product</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure delete this product?</p>  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button id="btn-ConfirmDelete" (click)="deleteProduct()" type="button" data-bs-dismiss="modal" class="btn btn-primary" >Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  

@@ -1,0 +1,153 @@
+<main>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div [ngClass]="{'toggled': isToggled}" id="sidebar-wrapper" style="margin-left: {{margin}}rem;">
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom" id="storeName">Apple-T Store</div>
+            <div class="list-group list-group-flush my-3">
+                <a routerLink="/" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" id="option"><i id="icon" class="fa-solid fa-house"></i>Home</a>
+                <a routerLink="/Statistic-Product-Table" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" id="option"><i id="icon" class="fa-solid fa-gift"></i>Product</a>
+                <!-- <a class="list-group-item list-group-item-action bg-transparent second-text fw-bold" id="option"><i id="icon" class="fa-solid fa-users"></i>Customer</a> -->
+                <a routerLink="/Statistic-byMonth-Table" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" id="option"><i id="icon" class="fa-solid fa-calendar-days"></i>Date</a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <div class="d-flex align-items-center">   
+                    <i class="fas fa-align-left primary-text fs-4 me-3" (click)="toggleMenu1()" id="menu-toggle" style="display: {{display1}}"></i>
+                    <i class="fas fa-align-left primary-text fs-4 me-3" (click)="toggleMenu2()" id="menu-toggle" style="display: {{display2}}"></i>
+                    <h2 class="fs-2 m-0">Revenue Total Statistic </h2>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <button routerLink="/Statistic-Product-Table" class="btn_table">Table</button>
+                            <button routerLink="/Statistic-Product-Chart" class="btn_chart">Chart</button>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                
+                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid px-4">
+                <div>
+                    <div class="row g-3 my-2">
+                        <div class="col-md-4">
+                            <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                                <div>
+                                    <h3 class="fs-2">Products</h3>
+                                    <p class="fs-5">{{total_quantity}} <i style="margin-left: 5px;" class="fa-solid fa-gift"></i></p>
+                                </div>
+                                <i class="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-4">
+                            <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                                <div>
+                                    <h3 class="fs-2">Revenue</h3>
+                                    <p class="fs-5">{{total_revenue}} $</p>
+                                </div>
+                                <i
+                                    class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-4">
+                            <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                                <div>
+                                    <h3 class="fs-2">Order</h3>
+                                    <p class="fs-5">{{total_order}} <i style="margin-left: 5px;" class="fa-solid fa-bag-shopping"></i></p>
+                                </div>
+                                <i class="fa-solid fa-bag-shopping fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- main -->
+                <div id="main">   
+                    <br>
+                    <form method="#" action="#">
+                        <div id="table_form" class="container" style="display: flex">
+                            <h6>Sort Type:</h6>
+                            <select class="form-select" required="required" style="width:200px, display: flex" (change)="changeSortOrder($event)">
+                                <option value="">Choose how to sort</option>
+                                <option value="desc">From high to low</option>
+                                <option value="asc">From low to high</option>
+                            </select>
+                            <!-- <select class="form-select" required="required" style="width:200px, display: flex">
+                                <option value="">Choose type to sort</option>
+                                <option>Number of sold</option>
+                                <option>Revenue</option>
+                            </select> -->
+                        </div>
+                        <!-- <div class="container">
+                            <br>
+                            <label>Choose time from:</label>
+                            <input required="required" class="form-control" type="date" style="width:200px"/> 
+                            <br>
+                            <label>Choose time to:</label>
+                            <input required="required" class="form-control" type="date" style="width:200px"/>
+                            <br>
+                            <button type="button" class="btn text-light" style="background-color: #ff014fff;">Sort</button>
+                        </div> -->
+                    </form>
+
+                
+                    <div class="container mb-3">
+                        <table id="table" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col" class="text-center">Brand</th>
+                                    <th scope="col" class="text-center"> Number of sold</th>
+                                    <th scope="col" class="text-center">Revenue</th>
+                                    
+                                </tr>
+                            </thead>
+                                <tbody  *ngFor="let item of lstPro_Sta | paginate:{itemsPerPage: pageSize, currentPage: currentPage}">
+                                    <tr>
+                                        <td>{{item.productName}}</td>
+                                        <td class="text-center">{{item.product_brand}}</td>          
+                                        <td class="text-center">{{item.number_sold}}</td>          
+                                        <td class="text-center">{{item.number_ren}} $</td>                    
+                                    </tr>                           
+                                </tbody>
+                        </table>
+
+                    <div class="pagination">
+                        <pagination-controls (pageChange)="currentPage=$event" variant="Circular"></pagination-controls>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        var el = document.getElementById("wrapper");
+        var toggleButton = document.getElementById("menu-toggle");
+
+        toggleButton.onclick = function () {
+            el.classList.toggle("toggled");
+        };
+    </script> -->
+</main>

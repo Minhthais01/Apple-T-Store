@@ -1,0 +1,229 @@
+<!-- home content -->
+<!-- <section class="home">
+    <div class="content">
+      <h1> <span>Apple-T Store</span>
+        <br>
+        Up To <span id="span2">50%</span> Off
+      </h1>
+      <p>Apple-T Store is a store specializing in providing all smartphone models  
+        <br>from famous brands such as Apple, Samsung, Vivo, Oppo, Xiaomi,...
+      </p>
+      <div class="btn"><button routerLink="/Product">Shop Now</button></div>
+
+    </div>
+    <div class="img">
+      <img src="assets/img/background.png" alt="" style=" border-radius: unset;">
+    </div>
+    
+  </section> -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                <h1> <span>Apple-T Store</span>
+                    <br>
+                    Up To <span id="span2">50%</span> Off
+                  </h1>
+                  <p>Apple-T Store is a store specializing in providing all smartphone models  
+                    <br>from famous brands such as Apple, Samsung, Vivo, Oppo, Xiaomi,...
+                  </p>
+              <div class="d-flex justify-content-center justify-content-lg-start">
+                <a routerLink="/Product" class="btn-get-started scrollto">Shop Now</a>
+              </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+              <img id="img_bg" src="assets/img/logo.png" class="img-fluid animated" alt="">
+            </div>
+          </div>
+        </div>
+    
+      </section><!-- End Hero -->
+
+
+  <!-- Featured Start -->
+  <div class="container-fluid pt-5">
+    <div class="row px-xl-5 pb-3">
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                <i id="icon" class="fa-solid fa-gift"></i>
+                <h5 class="font-weight-semi-bold m-0">Quality Product</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                <i id="icon" class="fa-solid fa-truck-fast"></i>
+                <h5 class="font-weight-semi-bold m-0">Free Shipping</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                <i id="icon" class="fa-solid fa-arrow-right-arrow-left"></i>
+                <h5 class="font-weight-semi-bold m-0">14-Day Return</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
+                <i id="icon" class="fa-solid fa-phone-volume"></i>
+                <h5 class="font-weight-semi-bold m-0">24/7 Support</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featured End -->
+
+<!-- Product -->
+
+<div class="section-title">
+  <h2>Products</h2>
+</div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6" *ngFor="let item of lstProduct | paginate:{itemsPerPage: pageSize, currentPage: currentPage}">
+          <div class="product-grid">
+            <div class="product-image">
+              <a>
+                  <img class="pic-1" [src]="(path + item.product_image)" style="object-fit: contain; border-radius: unset;">
+              </a>
+              <ul class="social">
+                  <li><a [routerLink]="['/Product-Details', item.product_id]" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                  <li><a (click)="addCart(item.product_id, 1)" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+              </ul>
+            </div>
+            <div class="product-content">
+                <h3 class="title"><a>{{item.product_name}}</a></h3>
+                <div class="price">{{item.product_sell_price}}$
+                    <span>{{item.product_sell_price * 1.5}} $</span>
+                </div>
+            </div>
+          </div>
+      </div>
+      <div class="pagination">
+        <pagination-controls (pageChange)="currentPage=$event" variant="Circular"></pagination-controls>
+      </div>
+    </div>
+  </div>
+
+<!-- ======= About Us Section ======= -->
+<div>
+  <section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>About Us</h2>
+      </div>
+
+      <div class="row content">
+        <div class="col-lg-6">
+          <p>
+            Apple-T Store is a store specializing in providing all smartphone models  
+            <br>from famous brands such as Apple, Samsung, Vivo, Oppo, Xiaomi,...
+          </p>
+          <ul>
+            <li><i class="fa-solid fa-square-check"></i> Quality Product</li>
+            <li><i class="fa-solid fa-square-check"></i> Free Shiping</li>
+            <li><i class="fa-solid fa-square-check"></i> 14-Day Return</li>
+            <li><i class="fa-solid fa-square-check"></i> 24/7 Support</li>
+          </ul>
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+            Welcome to Apple-T Store, your ultimate destination for premium smartphones. 
+            Explore our curated collection of top brands, including iPhone, Samsung, Oppo, and more.
+             Find the perfect product to fit your lifestyle and stay connected in style.
+          </p>
+          <a routerLink="/Product"  class="btn-learn-more">Shop Now</a>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Us Section -->
+</div>
+
+
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Contact</h2>
+        <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-5 d-flex align-items-stretch">
+          <div class="info">
+            <div class="address">
+            <i class="fa-solid fa-location-dot"></i>
+              <h4>Location:</h4>
+              <p>A108 Adam Street, New York, NY 535022</p>
+            </div>
+
+            <div class="email">
+            <i class="fa-solid fa-envelope"></i>
+              <h4>Email:</h4>
+              <p>appletstore@gmail.com</p>
+            </div>
+
+            <div class="phone">
+                <i class="fa-solid fa-phone-volume"></i>
+              <h4>Call:</h4>
+              <p>+0817951699</p>
+            </div>
+            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d779.4218233048201!2d105.71904930819899!3d10.095851907285997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1714101869473!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+          </div>
+
+        </div>
+
+        <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="name">Your Name</label>
+                <input type="text" name="name" class="form-control" id="name" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="name">Your Email</label>
+                <input type="email" class="form-control" name="email" id="email" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="name">Address</label>
+              <input type="text" class="form-control" name="address" id="address" required>
+            </div>
+            <div class="form-group">
+              <label for="name">Message</label>
+              <textarea class="form-control" name="message" rows="10" required  id="message"></textarea>
+            </div>
+            <div class="my-3">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your message has been sent. Thank you!</div>
+            </div>
+            <div class="text-center"><button type="submit">Send Message</button></div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Contact Section -->
+
+
+       <!-- newslater -->
+    <!-- <div class="container" id="newslater">
+        <h3 class="text-center">Subscribe To The Apple-T Store For Latest upload.</h3>
+        <div class="input text-center">
+          <input type="text" placeholder="Enter Your Email..">
+          <button id="subscribe">Subscribe</button>
+        </div>
+      </div> -->
+      <!-- newslater -->
+      
+  

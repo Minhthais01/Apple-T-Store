@@ -1,0 +1,95 @@
+
+section{
+    margin-top: 130px;
+    min-height: auto;
+}
+
+.select{
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  border: #c8c7c7 1px solid;
+}
+
+#imgCart{
+    width: 70px;
+}
+
+#btn_payment:hover{
+    background-color: #ef5777;
+    font-size: 22px;
+    color: white;
+}
+
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  .modal-content {
+    width: 80%; 
+    max-width: 600px; 
+  }
+
+  .modal-body p {
+    margin-bottom: 5px; 
+    margin-top: 5px;
+  }
+
+
+  .modal-body input[type="text"],
+  .modal-body textarea {
+    margin-top: 5px; 
+  }
+
+  .total{
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .infor{
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }
+    
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+    
+    .bg-grey {
+    background-color: #eae8e8;
+    }
+    
+    @media (min-width: 992px) {
+    .card-registration-2 .bg-grey {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    }
+    }
+    
+    @media (max-width: 991px) {
+    .card-registration-2 .bg-grey {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    }
+    }
+
+    /* @media (max-width: 450px) {
+        #inforCart{
+            display: flex;
+        }
+        } */

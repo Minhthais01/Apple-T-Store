@@ -1,0 +1,69 @@
+<main>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div [ngClass]="{'toggled': isToggled}" id="sidebar-wrapper" style="margin-left: {{margin}}rem;">
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom" id="storeName">Apple-T Store</div>
+            <div class="list-group list-group-flush my-3">
+                <a routerLink="/" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" id="option"><i id="icon" class="fa-solid fa-house"></i>Home</a>
+                <a routerLink="/Statistic-Product-Table" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" id="option"><i id="icon" class="fa-solid fa-gift"></i>Product</a>
+                <a routerLink="/Statistic-byMonth-Table" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" id="option"><i id="icon" class="fa-solid fa-calendar-days"></i>Date</a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <div class="d-flex align-items-center">   
+                    <i class="fas fa-align-left primary-text fs-4 me-3" (click)="toggleMenu1()" id="menu-toggle" style="display: {{display1}}"></i>
+                    <i class="fas fa-align-left primary-text fs-4 me-3" (click)="toggleMenu2()" id="menu-toggle" style="display: {{display2}}"></i>
+                    <h2 class="fs-2 m-0">Revenue Total Chart</h2>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <button routerLink="/Statistic-Product-Table" class="btn_table">Table</button>
+                            <button routerLink="/Statistic-Product-Chart" class="btn_chart">Chart</button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid px-4">
+
+
+                <div class="div-form mx-auto">
+                    <div class="scroll-horizontal">
+                        <div class="div-chart" >
+                        
+                            <!-- <h2 class="title-chart">Products Statistic Chart</h2> -->
+                            <canvas id="barChart"></canvas >
+                            <!-- <canvas id="lineChart" style="display: {{displayLineChart}}"></canvas > 
+                            <canvas id="radarLineChart" style="display: {{displayRadarChart}}"></canvas >  -->
+                           
+                    
+                            <div class="div-left" id="div-barLineRadar">
+                                <!-- <button id="{{idButtonBar}}"  class="download-button" style="color: {{buttonBarLetter}}; background: {{buttonBarBackground}}"
+                                 (click)="onBar()">Bar</button>
+                                <button id="{{idButtonLine}}" class="download-button"  style="color: {{buttonLineLetter}}; background: {{buttonLineBackground}}" 
+                                (click)="onLine()">Line</button>
+                                <button id="{{idButtonRadar}}"  class="download-button"  style="color: {{buttonRadarLetter}}; background: {{buttonRadarBackground}}" 
+                                (click)="onRadar()">Radar</button> -->
+                            </div>  
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>

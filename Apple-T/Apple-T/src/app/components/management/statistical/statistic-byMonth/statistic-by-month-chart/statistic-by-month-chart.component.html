@@ -1,0 +1,66 @@
+<main>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div [ngClass]="{'toggled': isToggled}" id="sidebar-wrapper" style="margin-left: {{margin}}rem;">
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom" id="storeName">Apple-T Store</div>
+            <div class="list-group list-group-flush my-3">
+                <a routerLink="/" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" id="option"><i id="icon" class="fa-solid fa-house"></i>Home</a>
+                <a routerLink="/Statistic-Product-Table" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" id="option"><i id="icon" class="fa-solid fa-gift"></i>Product</a>
+                <a routerLink="/Statistic-byMonth-Table" class="list-group-item list-group-item-action bg-transparent second-text fw-bold" id="option"><i id="icon" class="fa-solid fa-calendar-days"></i>Date</a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <div class="d-flex align-items-center">   
+                    <i class="fas fa-align-left primary-text fs-4 me-3" (click)="toggleMenu1()" id="menu-toggle" style="display: {{display1}}"></i>
+                    <i class="fas fa-align-left primary-text fs-4 me-3" (click)="toggleMenu2()" id="menu-toggle" style="display: {{display2}}"></i>
+                    <h2 class="fs-2 m-0">Chart by Date</h2>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <button routerLink="/Statistic-byMonth-Table" class="btn_table">Table</button>
+                            <button routerLink="/Statistic-byMonth-Chart" class="btn_chart">Chart</button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid px-4">
+                <div class="div-form mx-auto">
+                    <form [formGroup]="statisticsForm" (ngSubmit)="statistic_chart()">
+                        <div class="container">
+                          <label>Choose time from:</label>
+                          <input formControlName="fromDate" class="form-control" type="date" style="width:200px"/>
+                          <br>
+                          <label>Choose time to:</label>
+                          <input formControlName="toDate" class="form-control" type="date" style="width:200px"/>
+  
+                          <button type="submit" class="btn text-light" style="background-color: #ff014fff;">Sort</button>
+                        </div>
+                      </form>
+                    <div class="scroll-horizontal">
+                        <div class="div-chart" >
+                            <canvas id="barChart"></canvas >
+                            <div class="div-left" id="div-barLineRadar">
+                            </div>  
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>

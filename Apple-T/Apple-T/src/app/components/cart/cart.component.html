@@ -1,0 +1,160 @@
+<section class="h-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12">
+        <div class="card card-registration card-registration-2" style="border-radius: 15px; background-color: #dad4f5">
+          <div class="card-body p-0">
+            <div class="row g-0">
+              <div class="col-lg-8">
+                <div class="p-5">
+                  <div class="d-flex justify-content-between align-items-center mb-5">
+                    <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
+                    <!-- <h6 class="mb-0 text-muted">{{qtyCart}} items</h6> -->
+                  </div>
+                  <hr class="my-4">
+
+                  <div *ngFor="let item of lstCart" class="row mb-4 d-flex justify-content-between align-items-center" id="infoCart">
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <img
+                        [src]="(path + item.cd_product_image)"
+                        class="img-fluid rounded-3" id="imgCart">
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-xl-3">
+                      <h6 class="text-muted">{{item.cd_product_name}}</h6>
+                      <!-- <h6 class="text-black mb-0">Iphone 15</h6> -->
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                      <button class="btn btn-link px-2" (click)="minusQty(item.cd_id)"
+                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                        <i class="fas fa-minus"></i>
+                      </button>
+
+                      <input min="0" name="quantity" [value]="item.cd_quantity" readonly
+                        class="form-control form-control-sm" style="width: 40px; text-align: center;" />
+
+                      <button class="btn btn-link px-2" (click)="plusQty(item.cd_id)"
+                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                      <h6 class="mb-0" id="productPrice">{{item.cd_product_price}} $</h6>
+                    </div>
+                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                      <a (click)="deletecart(item.cd_id)" style="cursor: pointer;" class="text-muted"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                  </div>
+
+                  <div class="pt-5" >
+                    <h6 class="mb-0"><a routerLink="/Product" class="text-body"><i
+                          class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 bg-grey">
+                <div class="p-5">
+                  <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                  <hr class="my-4">
+
+                  <div class="d-flex justify-content-between mb-4">
+                    <h5 class="text-uppercase">{{qtyCart}} items</h5>
+                    <h5 id="targetPrice"></h5>
+                  </div>
+
+
+                  <div class="d-flex justify-content-between mb-5">
+                    <h5 class="text-uppercase">Total price</h5>
+                    <h5>{{(total)}} $</h5>
+                  </div>
+
+                  <button style="border: none;" type="button" class="btn btn-dark btn-block btn-lg" id="btn_payment"
+                    data-mdb-ripple-color="dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Place Order</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" #exampleModal id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content" style="box-shadow: 20px 20px 80px rgb(218, 218, 218);">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Order Form</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+
+    <div class="modal-body">
+      <div class="form-group pt-3">
+        <form [formGroup]="orderForm">
+          <p>Address: </p>
+          <div class="input-field" [class.error]="orderForm.controls['order_address'].dirty && orderForm.hasError('required', 'order_address')">
+              <span><i class="fa-solid fa-location-dot"></i></span>
+              <input formControlName="order_address" type="text" placeholder="Enter address"/>
+          </div>
+          <small *ngIf="orderForm.controls['order_address'].dirty && orderForm.hasError('required', 'order_address')" class="text-danger">*Address is required</small>
+
+          <p>Number Phone:</p>
+          <div class="input-field" [class.error]="orderForm.controls['order_phone'].dirty && orderForm.hasError('required', 'order_phone')">
+            <span><i class="fa-solid fa-phone"></i></span>
+              <input formControlName="order_phone" type="text" style="margin-top: 5px; margin-left: 7px;" placeholder="Enter phone number"/>
+          </div>
+          <small *ngIf="orderForm.controls['order_phone'].dirty && orderForm.hasError('required', 'order_phone')" class="text-danger">*Phone is required</small>
+          <small *ngIf="orderForm.controls['order_phone'].hasError('pattern')" class="text-danger">*Phone Number is invalid</small>
+          
+          
+
+            <p>Payment methods:</p>
+            <div class="mb-4 pb-2">
+              <!-- <select class="select" (change)="onSelectPayment($event)"> -->
+                <select formControlName="order_payment" class="select" (change)="onPaymentMethodChange($event)">
+                <option value="Cash on Delivery">Cash on delivery</option>
+                <option value="Cash on Bank">Cash on bank</option>    
+              </select>
+              <br>
+              <small *ngIf="orderForm.controls['order_payment'].dirty && orderForm.hasError('required', 'order_payment')" class="text-danger">*Payment methods is required</small>
+            </div>
+          
+          <p>Note: </p>
+          <div class="input-field">
+            <span><i class="fa-solid fa-note-sticky"></i></span>
+              <textarea formControlName="order_note" type="text" style="margin-left: 9px;" placeholder="Enter note"></textarea>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button id="btnClose" type="button" class="btn btn-secondary" style="border: none;" data-bs-dismiss="modal">Close</button>
+      <button id="orderButton" [disabled]="selectedPaymentMethod !== 'Cash on Delivery'" style="background-color: #ff014fff; border: none;" type="button" (click)="addOrder()" class="btn btn-primary">Order</button>
+      <button data-bs-toggle="modal" data-bs-target="#exampleModal2" id="paypalButton" [disabled]="selectedPaymentMethod !== 'Cash on Bank'" style="background-color: rgb(1, 43, 255); border: none;" type="button" class="btn btn-primary" (click)="cashOnBank()">Paypal</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<!-- Modal2 -->
+<div class="modal fade" #exampleModal2 id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="box-shadow: 20px 20px 80px rgb(218, 218, 218); padding: 10px;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Paypal</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+  
+      <div class="paypal-container" style="text-align: center;">
+        <div class="total">Total Price to payment: {{(total)}} $ </div>
+        <div class="infor">Please don't refesh the browser while the transaction is processing</div>
+      </div>
+      <div #paymentRef ></div>
+    </div>
+  </div>
+  </div>

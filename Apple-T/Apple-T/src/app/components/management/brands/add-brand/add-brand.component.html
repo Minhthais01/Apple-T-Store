@@ -1,0 +1,55 @@
+<main>
+  <div class="container">
+      <div class="title">Add New brand</div>
+      <div class="content">
+        <form [formGroup]="brandForm">
+          <div class="user-details">
+            <div class="input-box" [class.error]="brandForm.controls['brand_name'].dirty && brandForm.hasError('required', 'brand_name')">
+              <span class="details">Brand Name</span>
+              <input formControlName="brand_name" type="text" placeholder="Enter brand name" required>
+              <small *ngIf="brandForm.controls['brand_name'].dirty && brandForm.hasError('required', 'brand_name')" class="text-danger">*brand Name is required</small>
+              <small *ngIf="brandForm.controls['brand_name'].hasError('pattern')" class="text-danger">*Minimum 2 and maximum 20 characters</small>
+            </div>
+
+            <div class="input-box" [class.error]="brandForm.controls['brand_email'].dirty && brandForm.hasError('required', 'brand_email')">
+              <span class="details">Email</span>
+              <input formControlName="brand_email" type="email" placeholder="Enter email" required>
+              <small *ngIf="brandForm.controls['brand_email'].dirty && brandForm.hasError('required', 'brand_email')" class="text-danger">*Email is required</small>
+              <small *ngIf="brandForm.controls['brand_email'].hasError('pattern')" class="text-danger">*Email is invalid</small>
+            </div>
+
+            <div class="input-box" [class.error]="brandForm.controls['brand_address'].dirty && brandForm.hasError('required', 'brand_address')">
+              <span class="details">Address</span>
+              <input formControlName="brand_address" type="text" placeholder="Enter address" required>
+              <small *ngIf="brandForm.controls['brand_address'].dirty && brandForm.hasError('required', 'brand_address')" class="text-danger">*Address is required</small>
+            </div>
+
+            <div class="input-box" [class.error]="brandForm.controls['brand_phone'].dirty && brandForm.hasError('required', 'brand_phone')">
+              <span class="details">Phone</span>
+              <input formControlName="brand_phone" type="text" placeholder="Enter phone number" required>
+              <small *ngIf="brandForm.controls['brand_phone'].dirty && brandForm.hasError('required', 'brand_phone')" class="text-danger">*Phone is required</small>
+              <small *ngIf="brandForm.controls['brand_phone'].hasError('pattern')" class="text-danger">*Number Phone is invalid</small>
+            </div>
+
+            <div class="input-box" style="margin-top: 1px;"  [class.error]="brandForm.controls['brand_status'].dirty && brandForm.hasError('required', 'brand_status')">
+              <span class="details">Status</span>
+              <select formControlName="brand_status" id="select-option" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="font-size: 16px;">
+                <option selected>Choose brand Status </option>
+                <option >Yes</option>
+                <option >No</option>
+              </select>
+              <small *ngIf="brandForm.controls['brand_status'].dirty && brandForm.hasError('required', 'brand_status')" class="text-danger">*brand status is required</small>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px;">
+            <a routerLink="/View-Brand" class="text-body"><i class="fa-solid fa-arrow-left" style="margin-left: 5px;"></i>  Back</a>
+          </div>
+
+          <div class="button">
+            <input (click)="addbrand()" type="submit" value="Save">
+          </div>
+        </form>
+      </div>
+    </div>
+</main>

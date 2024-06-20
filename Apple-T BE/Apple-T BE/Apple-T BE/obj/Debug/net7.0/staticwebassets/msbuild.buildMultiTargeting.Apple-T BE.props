@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Apple-T BE.props" />
+</Project>

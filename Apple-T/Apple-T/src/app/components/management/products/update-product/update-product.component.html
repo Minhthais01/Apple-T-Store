@@ -1,0 +1,71 @@
+<main>
+  <div class="container">
+      <div class="title">Update Product</div>
+      <div class="content">
+        <form>
+          <div class="user-details" *ngFor="let item of lstProduct">
+            <div class="input-box">
+              <span class="details">Product Name</span>
+              <input [value]="p_name" type="text" placeholder="Product Name" (input)="nameChange($event)" required>
+              <!--  <small *ngIf="productForm.controls['product_name'].dirty && productForm.hasError('required', 'product_name')" class="text-danger">*Product Name is required</small> -->
+            </div>
+
+            <div class="input-box">
+              <span class="details">Quantity</span>
+              <input [value]="p_quantity" type="number" min="0" placeholder="Product Quantity" (input)="qtyChange($event)" required>
+              <!-- <small *ngIf="productForm.controls['product_quantity'].dirty && productForm.hasError('required', 'product_quantity')" class="text-danger">*Quantity is required</small> -->
+            </div>
+
+            <div class="input-box" style="margin-top: 1px;">
+              <span class="details">Brand</span>
+              <select (change)="onSelectBrand($event)" id="select-option" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="font-size: 16px;">
+                <option selected style="color: #ccc;">Choose Brand</option>
+                <option *ngFor="let b of lstBrand">{{b.brand_name}}</option>
+              </select>
+            </div>
+
+            <div class="input-box">
+              <span class="details">Original Price</span>
+              <input [value]="p_originalprice" type="number" min="0" placeholder="Original Price" (input)="oPriceChange($event)" required>
+              <!-- <small *ngIf="productForm.controls['product_originalPrice'].dirty && productForm.hasError('required', 'product_originalPrice')" class="text-danger">*Original Price is required</small> -->
+            </div>
+
+            <div class="input-box">
+              <span class="details">Sell Price</span>
+              <input [value]="p_sellprice" type="number" min="0" placeholder="Sell Price" (input)="sPriceChange($event)" required>
+              <!-- <small *ngIf="productForm.controls['product_sellPrice'].dirty && productForm.hasError('required', 'product_sellPrice')" class="text-danger">*Sell Price is required</small> -->
+            </div>
+
+            <div class="input-box">
+              <span class="details">Decription</span>
+              <textarea [value]="p_description" placeholder="Description" (input)="descriptionChange($event)"></textarea>
+            </div>
+
+            <div class="input-box">
+              <span class="details">Upload Image</span>
+              <input [value]="p_image" type="file" class="form-control" (change)="uploadImage($event)" required>
+              <img [src]="path + item.product_image" class="imageUpload" [hidden]="showImage">
+              <img [src]="path" class="imageUpload" [hidden]="hideImage">
+            </div>
+
+            <div class="input-box" style="margin-top: 22px;">
+              <span class="details">Status</span>
+              <select (change)="onSelectStatus($event)" id="select-option" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="font-size: 16px;">
+                <option selected style="color: #ccc;">Choose Status</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <a routerLink="/View-Product" class="text-body"><i class="fa-solid fa-arrow-left" style="margin-left: 5px;"></i>  Back</a>
+          </div>
+          <div class="button">
+            <input (click)="updateProduct()" type="submit" value="Update">
+          </div>
+        </form>
+      </div>
+    </div>
+</main>
+
